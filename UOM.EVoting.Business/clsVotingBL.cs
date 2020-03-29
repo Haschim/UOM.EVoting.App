@@ -41,5 +41,22 @@ namespace UOM.EVoting.Business
             return fOk;
         }
 
+        public void Vote(Common.clsVoter objVoter, List<Common.clsCandidate> lstCandidates)
+        {
+            // Declarations
+            Data.clsCandidateDA objCandidatesDA = new Data.clsCandidateDA();
+            Data.clsVoterDA objVoterDA = new Data.clsVoterDA();
+
+            // Increment one vote for each candidate
+            foreach  (Common.clsCandidate objCandidate in lstCandidates)
+            {
+                objCandidate.Votes += 1;
+                objCandidatesDA.Update(objCandidate);
+            }
+
+            // Indicate that a voter has completed voting
+            objVoterDA.Update(objVoter);
+        }
+
     }
 }

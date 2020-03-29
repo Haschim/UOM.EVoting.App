@@ -63,5 +63,46 @@ namespace UOM.EVoting.Data
 
             return objvoter;
         }
+
+        public void Update(Common.clsVoter objVoter)
+        {
+            try
+            {
+                //Query to update a voter
+                string QueryString = @"update Voters
+                                       set    HasVoted = 'true'
+                                       where  Id = @id";
+
+
+                using(SqlConnection Connection = new SqlConnection(clsConnectionDA.ConnectionString))
+                {
+                    using(SqlCommand Command = Connection.CreateCommand())
+                    {
+                        // Load Query
+                        Command.CommandText = QueryString;
+
+                        // Pass parameters
+                        Command.Parameters.Add(new SqlParameter("@id", objVoter.Id));
+
+                        // Open connection
+                        Connection.Open();
+
+                        // Execute query
+                        Command.ExecuteNonQuery();
+
+                        // Close connection
+                        Connection.Close();
+
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+
+            }
+
+        }
+
     }
 }

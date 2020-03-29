@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace UOM.EVoting.Data
@@ -51,5 +52,12 @@ namespace UOM.EVoting.Data
 
             return objConstituency;
         }
+
+        // Read all constituencies
+        public List<Common.clsConstituency> Read()
+        {
+            return null;
+        }
+
     }
 }

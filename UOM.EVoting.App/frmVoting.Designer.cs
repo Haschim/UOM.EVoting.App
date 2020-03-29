@@ -52,6 +52,7 @@
             this.btnVote.TabIndex = 3;
             this.btnVote.Text = "Vote";
             this.btnVote.UseVisualStyleBackColor = true;
+            this.btnVote.Click += new System.EventHandler(this.btnVote_Click);
             // 
             // btnCancel
             // 

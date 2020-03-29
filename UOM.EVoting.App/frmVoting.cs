@@ -67,5 +67,31 @@ namespace UOM.EVoting.App
         {
             Close();
         }
+
+        // Vote
+        private void btnVote_Click(object sender, EventArgs e)
+        {
+            // Empty the list
+            lstCandidates.Clear();
+
+            // Check the candidates voted for
+            foreach (CheckBox chkCandidate in flpCandidates.Controls)
+            {
+                if (chkCandidate.Checked)
+                    lstCandidates.Add((Common.clsCandidate)chkCandidate.Tag);
+            }
+
+            // Any vote ?
+            if (lstCandidates.Count != 3)
+            {
+                MessageBox.Show("INVALID_VOTE", "FORM_TITLE");
+                return;
+            }
+
+            objVotingBL.Vote(objVoter, lstCandidates);
+
+            //fVote = true;
+            this.Close();
+        }
     }
 }
