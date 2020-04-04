@@ -103,8 +103,5 @@ namespace UOM.EVoting.Data
 
             }
         }
-
-
-
     }
 }

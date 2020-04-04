@@ -98,6 +98,5 @@ namespace UOM.EVoting.Data
 
             return lstConstituencies;
         }
-
     }
 }

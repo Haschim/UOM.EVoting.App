@@ -58,7 +58,7 @@ namespace UOM.EVoting.Data
             }
             catch (Exception)
             {
-                // Catch block code...
+
             }
 
             return objvoter;
@@ -101,8 +101,6 @@ namespace UOM.EVoting.Data
             {
 
             }
-
         }
-
     }
 }

@@ -39,10 +39,11 @@
             // cboConstituencies
             // 
             this.cboConstituencies.FormattingEnabled = true;
-            this.cboConstituencies.Location = new System.Drawing.Point(34, 19);
+            this.cboConstituencies.Location = new System.Drawing.Point(29, 22);
             this.cboConstituencies.Name = "cboConstituencies";
-            this.cboConstituencies.Size = new System.Drawing.Size(488, 21);
+            this.cboConstituencies.Size = new System.Drawing.Size(470, 21);
             this.cboConstituencies.TabIndex = 0;
+            this.cboConstituencies.SelectedValueChanged += new System.EventHandler(this.cboConstituencies_SelectedValueChanged);
             // 
             // chrtResults
             // 
@@ -50,13 +51,16 @@
             this.chrtResults.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chrtResults.Legends.Add(legend1);
-            this.chrtResults.Location = new System.Drawing.Point(34, 59);
+            this.chrtResults.Location = new System.Drawing.Point(29, 62);
             this.chrtResults.Name = "chrtResults";
             series1.ChartArea = "ChartArea1";
+            series1.IsValueShownAsLabel = true;
+            series1.IsVisibleInLegend = false;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
             this.chrtResults.Series.Add(series1);
-            this.chrtResults.Size = new System.Drawing.Size(488, 260);
+            this.chrtResults.Size = new System.Drawing.Size(470, 242);
             this.chrtResults.TabIndex = 1;
             this.chrtResults.Text = "chart1";
             // 
@@ -64,7 +68,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(557, 339);
+            this.ClientSize = new System.Drawing.Size(529, 326);
             this.Controls.Add(this.chrtResults);
             this.Controls.Add(this.cboConstituencies);
             this.Name = "frmResults";
