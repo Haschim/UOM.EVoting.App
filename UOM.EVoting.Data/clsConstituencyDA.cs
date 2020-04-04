@@ -25,9 +25,10 @@ namespace UOM.EVoting.Data
                         // Load Query
                         Command.CommandText = QueryString;
 
-                        // Pass parameters
+                        // Pass Parameters
                         Command.Parameters.Add(new SqlParameter("@id", ConstituencyId));
 
+                        // Open Connection
                         Connection.Open();
 
                         using (SqlDataReader reader = Command.ExecuteReader())
@@ -39,7 +40,7 @@ namespace UOM.EVoting.Data
                             }
                         }
 
-                        // Close connection
+                        // Close Connection
                         Connection.Close();
                     }
 
@@ -56,7 +57,46 @@ namespace UOM.EVoting.Data
         // Read all constituencies
         public List<Common.clsConstituency> Read()
         {
-            return null;
+            List<Common.clsConstituency> lstConstituencies = new List<Common.clsConstituency>();
+
+            try
+            {
+                string QueryString = @"select * 
+                                       from   Constituencies";
+
+                using (SqlConnection Connection = new SqlConnection(clsConnectionDA.ConnectionString))
+                {
+                    using (SqlCommand Command = Connection.CreateCommand())
+                    {
+                        // Load Query
+                        Command.CommandText = QueryString;
+
+                        // Open Connection
+                        Connection.Open();
+
+                        using (SqlDataReader reader = Command.ExecuteReader())
+                        {
+                            // Loop Through All Records
+                            while (reader.Read())
+                            {
+                                Common.clsConstituency objConstituency = new Common.clsConstituency();
+                                objConstituency.Id = (int)reader["Id"];
+                                objConstituency.Name = (string)reader["Name"];
+                                lstConstituencies.Add(objConstituency);
+                            }
+                        }
+
+                        // Close Connection
+                        Connection.Close();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return lstConstituencies;
         }
 
     }

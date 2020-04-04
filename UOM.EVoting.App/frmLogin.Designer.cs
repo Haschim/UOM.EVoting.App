@@ -64,6 +64,7 @@
             this.llbResult.TabIndex = 3;
             this.llbResult.TabStop = true;
             this.llbResult.Text = "Verify result";
+            this.llbResult.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbResult_LinkClicked);
             // 
             // txtLogin
             // 

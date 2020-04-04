@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsLoginBL.cs" />
+    <Compile Include="clsResultsBL.cs" />
     <Compile Include="clsVotingBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

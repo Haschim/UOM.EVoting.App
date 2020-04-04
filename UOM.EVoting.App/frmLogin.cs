@@ -75,5 +75,13 @@ namespace UOM.EVoting.App
         {
             Close();
         }
+
+        private void llbResult_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            using(frmResults frmResults = new frmResults())
+            {
+                frmResults.ShowDialog();
+            }
+        }
     }
 }
