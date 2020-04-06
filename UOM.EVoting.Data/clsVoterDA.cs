@@ -73,10 +73,9 @@ namespace UOM.EVoting.Data
                                        set    HasVoted = 'true'
                                        where  Id = @id";
 
-
-                using(SqlConnection Connection = new SqlConnection(clsConnectionDA.ConnectionString))
+                using (SqlConnection Connection = new SqlConnection(clsConnectionDA.ConnectionString))
                 {
-                    using(SqlCommand Command = Connection.CreateCommand())
+                    using (SqlCommand Command = Connection.CreateCommand())
                     {
                         // Load Query
                         Command.CommandText = QueryString;
